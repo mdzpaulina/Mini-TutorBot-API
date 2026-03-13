@@ -1,0 +1,10 @@
+com/tutorbot/controller/StudentController.class
+com/tutorbot/model/Feedback.class
+com/tutorbot/service/StudentService.class
+com/tutorbot/controller/ExerciseController.class
+com/tutorbot/TutorbotApplication.class
+com/tutorbot/model/Exercise.class
+com/tutorbot/model/Student.class
+com/tutorbot/repository/ExerciseRepository.class
+com/tutorbot/service/ExerciseService.class
+com/tutorbot/repository/StudentRepository.class

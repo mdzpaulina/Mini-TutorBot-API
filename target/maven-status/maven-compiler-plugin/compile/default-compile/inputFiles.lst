@@ -1,0 +1,10 @@
+/Users/paulinamdz/programacion/Java/Mini-TutorBot-API/src/main/java/com/tutorbot/TutorbotApplication.java
+/Users/paulinamdz/programacion/Java/Mini-TutorBot-API/src/main/java/com/tutorbot/controller/ExerciseController.java
+/Users/paulinamdz/programacion/Java/Mini-TutorBot-API/src/main/java/com/tutorbot/controller/StudentController.java
+/Users/paulinamdz/programacion/Java/Mini-TutorBot-API/src/main/java/com/tutorbot/model/Exercise.java
+/Users/paulinamdz/programacion/Java/Mini-TutorBot-API/src/main/java/com/tutorbot/model/Feedback.java
+/Users/paulinamdz/programacion/Java/Mini-TutorBot-API/src/main/java/com/tutorbot/model/Student.java
+/Users/paulinamdz/programacion/Java/Mini-TutorBot-API/src/main/java/com/tutorbot/repository/ExerciseRepository.java
+/Users/paulinamdz/programacion/Java/Mini-TutorBot-API/src/main/java/com/tutorbot/repository/StudentRepository.java
+/Users/paulinamdz/programacion/Java/Mini-TutorBot-API/src/main/java/com/tutorbot/service/ExerciseService.java
+/Users/paulinamdz/programacion/Java/Mini-TutorBot-API/src/main/java/com/tutorbot/service/StudentService.java
