@@ -306,30 +306,8 @@ Application runs with default settings:
 
 To modify settings, edit `src/main/resources/application.properties`
 
-## Grading Criteria Compliance
 
-✅ **Project compiles and runs on port 8080** (10/10)
-✅ **Models correctly defined with getters/setters** (10/10)
-✅ **Fake data pre-loaded in repositories** (15/15)
-✅ **Services with correct logic and IoC** (20/20)
-✅ **All 7 endpoints working and returning JSON** (30/30)
-✅ **Clean code, proper annotations, good structure** (15/15)
 
-**Total Score: 100/100**
+## Authors
 
-## Future Enhancements
-
-- Database integration (JPA/Hibernate with MySQL/PostgreSQL)
-- User authentication and authorization
-- Advanced exercise categories and topics
-- Progress tracking and analytics
-- Email notifications
-- API documentation with Swagger/OpenAPI
-
-## Author
-
-Paulina Mendez ([@mdzpaulina](https://github.com/mdzpaulina))
-
-## License
-
-This project is licensed under the MIT License
+Team 32 
