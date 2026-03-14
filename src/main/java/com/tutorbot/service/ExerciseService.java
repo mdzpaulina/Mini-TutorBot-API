@@ -15,12 +15,14 @@ import com.tutorbot.repository.ExerciseRepository;
 public class ExerciseService {
  
     private final ExerciseRepository exerciseRepository;
+    private final StudentService studentService;
  
     // Hardcoded correct answers per exercise id
     private final Map<Integer, String> correctAnswers = new HashMap<>();
  
-    public ExerciseService(ExerciseRepository exerciseRepository) {
+    public ExerciseService(ExerciseRepository exerciseRepository, StudentService studentService) {
         this.exerciseRepository = exerciseRepository;
+        this.studentService = studentService;
  
         correctAnswers.put(101, "@RestController");
         correctAnswers.put(102, "@SpringBootApplication");
@@ -53,8 +55,9 @@ public class ExerciseService {
         String correct = correctAnswers.get(exerciseId);
         boolean isCorrect = correct != null && correct.equalsIgnoreCase(answer.trim());
  
+        Feedback feedback;
         if (isCorrect) {
-            return new Feedback(
+            feedback = new Feedback(
                     studentId,
                     exerciseId,
                     answer,
@@ -63,7 +66,7 @@ public class ExerciseService {
                     true
             );
         } else {
-            return new Feedback(
+            feedback = new Feedback(
                     studentId,
                     exerciseId,
                     answer,
@@ -72,6 +75,11 @@ public class ExerciseService {
                     false
             );
         }
+        
+        // Save feedback for the student
+        studentService.saveFeedback(feedback);
+        
+        return feedback;
     }
 }
  

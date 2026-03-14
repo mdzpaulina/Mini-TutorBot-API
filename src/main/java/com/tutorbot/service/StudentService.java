@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.stereotype.Service;
 
 import com.tutorbot.model.Student;
+import com.tutorbot.model.Feedback;
 import com.tutorbot.repository.StudentRepository;
  
 @Service
@@ -28,6 +29,14 @@ public class StudentService {
  
     public Student registerStudent(Student student) {
         return studentRepository.save(student);
+    }
+ 
+    public List<Feedback> getStudentFeedback(int studentId) {
+        return studentRepository.getFeedbackByStudentId(studentId);
+    }
+ 
+    public void saveFeedback(Feedback feedback) {
+        studentRepository.saveFeedback(feedback);
     }
 }
  

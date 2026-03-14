@@ -7,11 +7,13 @@ import java.util.Optional;
 import org.springframework.stereotype.Repository;
 
 import com.tutorbot.model.Student;
+import com.tutorbot.model.Feedback;
  
 @Repository
 public class StudentRepository {
  
     private final List<Student> students = new ArrayList<>();
+    private final List<Feedback> allFeedback = new ArrayList<>();
  
     public StudentRepository() {
         students.add(new Student(1, "Ana Torres",    "ana@university.com",     "beginner"));
@@ -38,6 +40,16 @@ public class StudentRepository {
         student.setId(nextId);
         students.add(student);
         return student;
+    }
+ 
+    public void saveFeedback(Feedback feedback) {
+        allFeedback.add(feedback);
+    }
+ 
+    public List<Feedback> getFeedbackByStudentId(int studentId) {
+        return allFeedback.stream()
+                .filter(f -> f.getStudentId() == studentId)
+                .toList();
     }
 }
  

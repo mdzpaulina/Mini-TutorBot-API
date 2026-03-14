@@ -3,6 +3,7 @@ package com.tutorbot.controller;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -40,12 +41,22 @@ public class ExerciseController {
     // POST /api/exercises/submit
     // Body: { "studentId": 1, "exerciseId": 101, "answer": "@RestController" }
     @PostMapping("/submit")
-    public ResponseEntity<Feedback> submitAnswer(@RequestBody Map<String, Object> body) {
+    public ResponseEntity<?> submitAnswer(@RequestBody Map<String, Object> body) {
         int studentId  = (int) body.get("studentId");
         int exerciseId = (int) body.get("exerciseId");
         String answer  = (String) body.get("answer");
  
         Feedback feedback = exerciseService.submitAnswer(studentId, exerciseId, answer);
+        
+        // If exercise not found, return 404 with custom message
+        if (!feedback.isCorrect() && feedback.getMessage().equals("Exercise not found.")) {
+            Map<String, String> error = Map.of(
+                "status", "404",
+                "message", "Exercise with ID " + exerciseId + " not found"
+            );
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
+        }
+        
         return ResponseEntity.ok(feedback);
     }
 }
